@@ -1,6 +1,6 @@
-#Requires -Version 5.1 
-$ErrorActionPreference = 'Stop' 
-# https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-systemenclosure 
+#Requires -Version 5.1
+$ErrorActionPreference = 'Stop'
+# https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-systemenclosure
 Enum ChassisTypes
 {
   Other                   =  1
@@ -35,27 +35,27 @@ Enum ChassisTypes
   Tablet                  = 30
   Convertible             = 31
   Detachable              = 32
-} 
+}
 try
 {
-   $ComputerSystem = Get-CimInstance -ClassName Win32_ComputerSystem 
+   $ComputerSystem = Get-CimInstance -ClassName Win32_ComputerSystem
    if ($ComputerSystem.Model -eq 'Virtual Machine')
    {
-      Action1-Set-CustomAttribute 'Chassis Type' 'Virtual_Machine' 
-      exit 0 
-   } 
-   $SystemEnclosure = Get-CimInstance -ClassName Win32_SystemEnclosure 
+      Action1-Set-CustomAttribute 'Chassis Type' 'Virtual_Machine'
+      exit 0
+   }
+   $SystemEnclosure = Get-CimInstance -ClassName Win32_SystemEnclosure
    if ($SystemEnclosure)
    {
-      $ChassisType = [ChassisTypes[]]$SystemEnclosure.ChassisTypes -join ', ' 
+      $ChassisType = [ChassisTypes[]]$SystemEnclosure.ChassisTypes -join ', '
       if ($ChassisType)
       {
-         Action1-Set-CustomAttribute 'Chassis Type' $ChassisType 
-         exit 0 
-      } 
-   } 
+         Action1-Set-CustomAttribute 'Chassis Type' $ChassisType
+         exit 0
+      }
+   }
 }
 catch
 {
    exit 1 
-} 
+}
