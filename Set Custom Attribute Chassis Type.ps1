@@ -39,7 +39,7 @@ Enum ChassisTypes
 try
 {
    $ComputerSystem = Get-CimInstance -ClassName Win32_ComputerSystem
-   if ($ComputerSystem.Model -eq 'Virtual Machine')
+   if ($ComputerSystem.Model -eq 'Virtual Machine' -or $ComputerSystem.Model -eq 'VMware Virtual Platform' -or $ComputerSystem.Model -eq 'VMware7,1')
    {
       Action1-Set-CustomAttribute 'Chassis Type' 'Virtual_Machine'
       exit 0
