@@ -12,5 +12,6 @@ try
 }
 catch
 {
-   exit 1
+   $Host.UI.WriteErrorLine($_.Exception.Message)
+   exit 2
 }
