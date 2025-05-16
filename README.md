@@ -13,3 +13,5 @@ Under `Advanced > Endpoint Custom Attributes` rename one of your custom attribut
 Under `Advanced > Endpoint Custom Attributes` rename one of your custom attributes to `Chassis Type`. Then you can use this script to populate the value. We use this to create separate endpoint groups for laptops and desktops.
 #### Set Sleep timeout
 For setting the computer sleep timeout, in minutes, while connected to power. Intended for keeping the computer awake on the day we schedule updates for.
+#### TEMPLATE - Deploy Printer
+Deploying a printer with Action1
