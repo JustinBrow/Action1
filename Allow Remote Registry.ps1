@@ -1,0 +1,10 @@
+$minutes = 5;
+& C:\Windows\System32\reg.exe add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1;
+& C:\Windows\System32\sc.exe config RemoteRegistry start=auto;
+& C:\Windows\System32\sc.exe start RemoteRegistry;
+& C:\Windows\System32\netsh.exe advfirewall set allprofiles state off;
+Start-Sleep -Seconds ($minutes * 60);
+& C:\Windows\System32\netsh.exe advfirewall set allprofiles state on;
+& C:\Windows\System32\sc.exe stop RemoteRegistry;
+& C:\Windows\System32\sc.exe config RemoteRegistry start=disabled;
+& C:\Windows\System32\reg.exe delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /f;
