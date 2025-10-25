@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'Stop';
-# Create the Umbrella folder then write the certificate file to disk.
+<# Create the Umbrella folder then write the certificate file to disk.#>
 if (-not (Test-Path -LiteralPath 'C:\ProgramData\Cisco\Cisco Secure Client\Umbrella\'))
 {
    try
@@ -35,9 +35,9 @@ Y+V0t7SaEradv6tPG9DHX7PLwjQ/Xs95NGDIJTeFwCRqYUlBu9iZjIvKba0e0tST
 Vuyw2+P2HuWazjBPawGrbfyw+uO3KO4WnNGjMutJJ920o8B5M8gW1+Ye
 -----END CERTIFICATE-----
 "@;
-   # This method has a boolean parameter that specifies whether to output a Unicode byte order mark.
+   <# This method has a boolean parameter that specifies whether to output a Unicode byte order mark. #>
    $Encoding = [System.Text.UTF8Encoding]::new($false);
-   # Out-File outputs a UTF-16LE encoded file. Using the WriteAllLines() method with the encoding specificed outputs a proper UTF-8 file.
+   <# Out-File outputs a UTF-16LE encoded file. Using the WriteAllLines() method with the encoding specificed outputs a proper UTF-8 file. #>
    [System.IO.File]::WriteAllLines('C:\ProgramData\Cisco\Cisco Secure Client\Umbrella\Cisco_Umbrella_Root_CA.cer', $Certificate, $Encoding);
 }
 catch
@@ -45,7 +45,7 @@ catch
    $Host.UI.WriteErrorLine($_.Exception.Message);
    exit 2;
 };
-# Import the certificate file to the certificate store.
+<# Import the certificate file to the certificate store. #>
 if (Test-Path -LiteralPath 'C:\ProgramData\Cisco\Cisco Secure Client\Umbrella\Cisco_Umbrella_Root_CA.cer')
 {
    try
