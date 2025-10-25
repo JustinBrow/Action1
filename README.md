@@ -14,6 +14,6 @@ Under `Advanced > Endpoint Custom Attributes` rename one of your custom attribut
 #### Set Sleep timeout
 For setting the computer sleep timeout, in minutes, while connected to power. Intended for keeping the computer awake on the day we schedule updates for.
 #### Install Product Key
-For deploying Windows Product Key. Namely the Windows 10 ESU MAK key. n the script library define a String parameter `ProductKey`.
+For deploying Windows Product Key. Namely the Windows 10 ESU MAK key. In the script library define a String parameter `ProductKey`.
 #### TEMPLATE - Deploy Printer
 Deploying a printer with Action1
