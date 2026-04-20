@@ -17,3 +17,5 @@ For setting the computer sleep timeout, in minutes, while connected to power. In
 For deploying Windows Product Key. Namely the Windows 10 ESU MAK key. In the script library define a String parameter `ProductKey`.
 #### TEMPLATE - Deploy Printer
 Deploying a printer with Action1
+#### Trust RDP Cert
+With the April 2026 Windows Updates Microsoft added a new prompt when connecting to remote desktops. This script downloads the certificate from the gateway and adds the cert hash to the trusted registry.
