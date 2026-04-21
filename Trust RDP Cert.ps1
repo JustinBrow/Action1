@@ -1,3 +1,8 @@
+Get-ChildItem -Path 'Registry::HKEY_USERS\' | where PSChildName -ne '.DEFAULT' | ForEach {
+   if (Test-Path -Path ([IO.Path]::Combine($_.PSPath, 'Software\Microsoft\Terminal Server Client'))) {
+      Get-Item ([IO.Path]::Combine($_.PSPath, 'Software\Microsoft\Terminal Server Client')) | New-ItemProperty -Name 'RdpLaunchConsentAccepted' -Type DWord -Value 1 -Force | Out-Null;
+   }
+};
 try {
    $hostname = 'https://rdsh.example.com/'
    $path = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services';
