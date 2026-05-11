@@ -18,5 +18,4 @@ For deploying Windows Product Key. Namely the Windows 10 ESU MAK key. In the scr
 #### TEMPLATE - Deploy Printer
 Deploying a printer with Action1
 #### Trust RDP Cert
-With the April 2026 Windows Updates Microsoft added a new prompt when connecting to remote desktops. This script downloads the certificate from the gateway and adds the cert hash to the trusted registry.  
-The script as written is designed to keep n - 1 hashes.
+With the April 2026 Windows Updates Microsoft added a new prompt when connecting to remote desktops. This script downloads the certificate from the gateway and adds the cert hash to the trusted registry. The script as written is designed to keep n - 1 hashes.
